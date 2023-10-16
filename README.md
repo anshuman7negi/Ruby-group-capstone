@@ -18,7 +18,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 School Library <a name="about-project"></a>
+# 📖 Catalog of my things app <a name="about-project"></a>
 
 **TDD Solver** is a Ruby-based app built to exercise test-driven development methods. 
 
