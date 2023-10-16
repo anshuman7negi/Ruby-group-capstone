@@ -2,8 +2,8 @@ require 'date'
 
 class Item
   attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
-  
-  def initialize (id,genre,author,source,label,publish_date,archived)
+
+  def initialize(id, genre, author, source, label, publish_date, archived)
     @id = id
     @genre = genre
     @author = author
@@ -19,11 +19,11 @@ class Item
   end
 
   def move_to_archive
-    if can_be_archived
-      @archived = true
-    else
-      @archived = false
-    end
+    @archived = if can_be_archived
+                  true
+                else
+                  false
+                end
   end
 end
 
