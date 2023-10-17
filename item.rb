@@ -10,7 +10,7 @@ class Item
     @source = source
     @label = label
     @publish_date = Date.parse(publish_date)
-    @archived = can_be_archived?
+    @archived = false
   end
 
   def can_be_archived?
