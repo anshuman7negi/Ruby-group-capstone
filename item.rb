@@ -3,14 +3,14 @@ require 'date'
 class Item
   attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
 
-  def initialize(id, genre, author, source, label, publish_date, archived)
+  def initialize(id, genre, author, source, label, publish_date)
     @id = id
     @genre = genre
     @author = author
     @source = source
     @label = label
     @publish_date = Date.parse(publish_date)
-    @archived = archived
+    @archived = can_be_archived?
   end
 
   def can_be_archived?
@@ -23,5 +23,5 @@ class Item
   end
 end
 
-item = Item.new(1, 'genre', 'author', 'source', 'label', '2013-10-01', false)
+item = Item.new(1, 'genre', 'author', 'source', 'label', '2013-11-01')
 puts item.can_be_archived?
