@@ -13,12 +13,14 @@ class Item
     @archived = false
   end
 
+  def move_to_archive
+    @archived = can_be_archived?
+  end
+
+  private
+
   def can_be_archived?
     age = Date.today - @publish_date
     age > 10 * 365
-  end
-
-  def move_to_archive
-    @archived = can_be_archived?
   end
 end
