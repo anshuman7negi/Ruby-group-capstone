@@ -20,7 +20,7 @@
 
 # 📖 Catalog of my things app <a name="about-project"></a>
 
-**TDD Solver** is a Ruby-based app built to exercise test-driven development methods. 
+**Catalog of my things app** is a Ruby-based console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -37,9 +37,11 @@ This project is built using the following technologies:
 
 ### Key Features <a name="key-features"></a>
 
-- Calculate factorial
-- Reverse a word
-- Check if numbers are multiples of 3 or 5
+- List all books and add new books
+- List all music albums and add new albums
+- List all games and add new games
+- List all genres, labels and authors
+- Data preserved in JSON files
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -56,7 +58,7 @@ Before running this project, make sure you have the following prerequisites inst
 ### Installation <a name="installation"></a>
 
 Clone this repository to your desired folder:
-   git clone https://github.com/balatstar/tdd-solver.git
+   git clone https://github.com/anshuman7negi/Ruby-group-capstone/
 
 <!-- AUTHORS -->
 
@@ -67,10 +69,15 @@ GitHub: @balatstar<br>
 Twitter: @balatstar<br>
 LinkedIn: Joyce Cruz<br>
 
-#### 👤 Margaret Kojo-Musa
-GitHub: @MargaretTechworld<br>
-Twitter: @KojoMargaret<br>
-LinkedIn: Margaret Kojo-Musa<br>
+#### 👤 Anshuman Singh Negi
+GitHub: @anshuman7negi<br>
+Twitter: @AnshumanNegi108<br>
+LinkedIn: Anshuman Singh Negi<br>
+
+#### 👤 Joy Tari Bagshaw
+GitHub: @JoyTaribagshaw<br>
+Twitter: @JoyTariBagshaw<br>
+LinkedIn: Joy Tari Bagshaw<br>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
@@ -84,13 +91,13 @@ LinkedIn: Margaret Kojo-Musa<br>
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
-[issues page](https://github.com/balatstar/tdd-solver/issues).
+[issues page](https://github.com/anshuman7negi/Ruby-group-capstone/issues).
 
 ## ⭐️ Show your support <a name="support"></a>
 <br>
 If you find this project useful, please consider giving it a star!
 
-[![Star](https://github.com/balatstar/tdd-solver?style=social)](https://github.com/balatstar/tdd-solver)
+[![Star](https://github.com/anshuman7negi/Ruby-group-capstone/?style=social)](https://github.com/anshuman7negi/Ruby-group-capstone/)
 
 
 <!-- ACKNOWLEDGEMENTS -->

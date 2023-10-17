@@ -19,13 +19,9 @@ class Item
   end
 
   def move_to_archive
-    @archived = if can_be_archived
-                  true
-                else
-                  false
-                end
+    @archived = can_be_archived?
   end
 end
 
-item = Item.new(1, 'genre', 'author', 'source', 'label', '2013-11-01', false)
+item = Item.new(1, 'genre', 'author', 'source', 'label', '2013-10-01', false)
 puts item.can_be_archived?
