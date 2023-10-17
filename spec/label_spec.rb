@@ -19,12 +19,11 @@ describe Label do
       label.add_item(item)
       expect(label.items).to include(item)
     end
-    
-    it 'should set the label of the added item to the current label' do
-        item = Item.new('2023-10-16')
-        label.add_item(item)
-        expect(item.label).to eq(label)
-      end
-  end
 
+    it 'should set the label of the added item to the current label' do
+      item = Item.new('2023-10-16')
+      label.add_item(item)
+      expect(item.label).to eq(label)
+    end
+  end
 end

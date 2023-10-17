@@ -30,8 +30,8 @@ describe Books do
     end
 
     it 'should call the superclass method if cover state is good' do
-        book.cover_state = 'Good'
-        expect(book.can_be_archived?).to eq(item.can_be_archived?)
+      book.cover_state = 'Good'
+      expect(book.can_be_archived?).to eq(item.can_be_archived?)
     end
   end
 end
