@@ -3,8 +3,8 @@ require 'date'
 class Item
   attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
 
-  def initialize(id, genre, author, source, label, publish_date)
-    @id = id
+  def initialize(genre, author, source, label, publish_date)
+    @id = id || Random.rand(1..1000)
     @genre = genre
     @author = author
     @source = source
@@ -23,5 +23,5 @@ class Item
   end
 end
 
-item = Item.new(1, 'genre', 'author', 'source', 'label', '2013-11-01')
+item = Item.new('genre', 'author', 'source', 'label', '2013-10-01')
 puts item.can_be_archived?
