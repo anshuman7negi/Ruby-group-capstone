@@ -22,6 +22,3 @@ class Item
     @archived = can_be_archived?
   end
 end
-
-item = Item.new('genre', 'author', 'source', 'label', '2013-10-01')
-puts item.can_be_archived?

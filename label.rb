@@ -1,7 +1,7 @@
 class Label
   attr_accessor :title, :items, :id, :color
 
-  def initialize(id, title, color)
+  def initialize(title, color)
     @id = id
     @title = title
     @color = color
@@ -10,6 +10,6 @@ class Label
 
   def add_item(item)
     @items.push(item)
-    item.lable = self
+    item.label = self
   end
 end
