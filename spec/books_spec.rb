@@ -3,7 +3,7 @@ require './item'
 
 describe Books do
   let(:book) { Books.new('anshuman', 'Good', '2023-10-16') }
-  let(:item) { Item.new('Fiction', 'anshuman', 'person', 'marvel', '2023-10-16') }
+  let(:item) { Item.new('2023-10-16') }
 
   context 'initialization' do
     it 'should set the publisher attribute' do
