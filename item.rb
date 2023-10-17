@@ -10,15 +10,17 @@ class Item
     @source = source
     @label = label
     @publish_date = Date.parse(publish_date)
-    @archived = false
-  end
-
-  def can_be_archived?
-    age = Date.today - @publish_date
-    age > 10 * 365
+    @archived = can_be_archived?
   end
 
   def move_to_archive
     @archived = can_be_archived?
+  end
+
+  private
+
+  def can_be_archived?
+    age = Date.today - @publish_date
+    age > 10 * 365
   end
 end
