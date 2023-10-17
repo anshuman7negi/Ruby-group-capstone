@@ -1,4 +1,5 @@
-require_relative './options'
+require_relative 'options'
+
 def main
   option = Options.new
   option.display_options
