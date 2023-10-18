@@ -1,5 +1,5 @@
 require './books'
-require './modules/createLabel'
+require './modules/createlabel'
 
 module CreateBook
   include CreateLabel
@@ -7,19 +7,14 @@ module CreateBook
   def add_book
     puts 'Who is the publisher of the book?'
     publisher = gets.chomp.to_s
-    puts "\n"
     puts "Choose the cover state of the book (e.g. 'good', 'bad')"
     cover_state = gets.chomp.to_s
-    puts "\n"
     puts 'Enter the publish date (yyyy-mm-dd):'
     publish_date = gets.chomp
-    puts "\n"
 
     book = Books.new(publisher, cover_state, publish_date)
     @books.push(book)
     puts '=====Book added successfully====='
-    puts "\n"
-    puts '********************************'
 
     if @labels.empty?
       puts 'No labels are available. Please create a label first.'
