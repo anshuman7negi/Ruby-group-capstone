@@ -1,10 +1,13 @@
 class Options
   def initialize
     @option = [
-      'can we archived',
-      'move to archived',
+      'List all books',
+      'List all labels (e.g. 'Gift', 'New')',
+      'Add a book',
       'exit'
     ]
+    @books = []
+    @labels = []
   end
 
   def display_options
