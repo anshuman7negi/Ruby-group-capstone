@@ -2,7 +2,7 @@ class Options
   def initialize
     @option = [
       'List all books',
-      'List all labels (e.g. 'Gift', 'New')',
+      'List all labels',
       'Add a book',
       'exit'
     ]
