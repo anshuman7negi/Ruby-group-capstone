@@ -1,3 +1,5 @@
+require '../books'
+
 class BookOption
   def add_book
     puts 'Who is the publisher of the book?'
