@@ -13,6 +13,16 @@ module AddMusicAlbum
     puts 'Enter the publish date (yyyy-mm-dd): '
     publish_date = gets.chomp
 
+    genre = choose_genre
+
+    music_album = MusicAlbum.new(name, on_spotify, publish_date)
+    music_album.assign_genre(genre)
+    @music_albums << music_album
+
+    puts 'Music album added!'
+  end
+
+  def choose_genre
     if @genres.empty?
       puts 'No genres available. Please create a new genre:'
       genre_name = gets.chomp
@@ -30,12 +40,7 @@ module AddMusicAlbum
 
       genre = selected_genre
     end
-
-    music_album = MusicAlbum.new(name, on_spotify, publish_date)
-    music_album.set_genre(genre)
-    @music_albums << music_album
-
-    puts 'Music album added!'
+    genre
   end
 
   def genre_options
@@ -54,11 +59,12 @@ module AddMusicAlbum
       new_genre_name = gets.chomp
       new_genre = Genre.new(new_genre_name)
       @genres << new_genre
-      return new_genre
+      new_genre
     else
       genre_index = user_input.to_i - 1
       return @genres[genre_index] if genre_index.between?(0, @genres.length - 1)
-      return nil
+
+      nil
     end
   end
 end

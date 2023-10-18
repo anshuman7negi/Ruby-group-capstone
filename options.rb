@@ -28,6 +28,7 @@ class Options
     end
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def operation(user_option)
     case user_option
     when 1 then @app.books_list
@@ -41,4 +42,5 @@ class Options
       puts '=======invalid option==========='
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 end

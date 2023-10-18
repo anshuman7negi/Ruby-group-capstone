@@ -15,9 +15,8 @@ class MusicAlbum < Item
     super && @on_spotify
   end
 
-  #move this to item.rb
-  def set_genre(genre)
+  def assign_genre(genre)
     @genre = genre
-    genre.add_item(self) if genre
+    genre&.add_item(self)
   end
 end
