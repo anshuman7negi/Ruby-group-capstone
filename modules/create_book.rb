@@ -15,10 +15,10 @@ module CreateBook
     book = Books.new(publisher, cover_state, publish_date)
     @books.push(book)
     puts '=====Book added successfully====='
-    label_info
+    label_info(book)
   end
 
-  def label_info
+  def label_info(book)
     if @labels.empty?
       puts 'No labels are available. Please create a label first.'
       create_label
