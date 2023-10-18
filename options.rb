@@ -13,7 +13,6 @@ class Options
 
   def display_options
     puts '======Welcome to the Catalog of my Things app======'
-    puts "\n"
     loop do
       puts "\n"
       puts 'Please choose an option:'

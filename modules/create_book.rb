@@ -1,5 +1,5 @@
 require './books'
-require './modules/createlabel'
+require './modules/create_label'
 
 module CreateBook
   include CreateLabel
@@ -15,7 +15,10 @@ module CreateBook
     book = Books.new(publisher, cover_state, publish_date)
     @books.push(book)
     puts '=====Book added successfully====='
+    label_info
+  end
 
+  def label_info
     if @labels.empty?
       puts 'No labels are available. Please create a label first.'
       create_label
