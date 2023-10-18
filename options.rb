@@ -4,8 +4,11 @@ class Options
   def initialize
     @option = [
       'List all books',
+      'List all music albums',
+      'List all genres',
       'List all labels',
       'Add a book',
+      'Add a music album',
       'exit'
     ]
     @app = App.new
@@ -28,9 +31,12 @@ class Options
   def operation(user_option)
     case user_option
     when 1 then @app.books_list
-    when 2 then @app.display_labels
-    when 3 then @app.add_book
-    when 4 then exit
+    when 2 then @app.list_music_albums
+    when 3 then @app.list_genres
+    when 4 then @app.display_labels
+    when 5 then @app.add_book
+    when 6 then @app.add_music_album
+    when 7 then exit
     else
       puts '=======invalid option==========='
     end
