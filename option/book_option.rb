@@ -10,7 +10,7 @@ class BookOption
     publish_date = gets.chomp
 
     book = Book.new(publisher, cover_state, publish_date)
-    @books.push(@book)
+    @books.push(book)
     puts 'Book added successfully'
     puts '********************************'
   end
