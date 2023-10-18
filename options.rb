@@ -1,15 +1,20 @@
+require './app'
+
 class Options
   def initialize
     @option = [
-      'can we archived',
-      'move to archived',
+      'List all books',
+      'List all labels',
+      'Add a book',
       'exit'
     ]
+    @app = App.new
   end
 
   def display_options
-    puts 'Welcome to the Catalog of my Things app'
+    puts '======Welcome to the Catalog of my Things app======'
     loop do
+      puts "\n"
       puts 'Please choose an option:'
 
       @option.each_with_index do |item, index|
@@ -22,19 +27,12 @@ class Options
 
   def operation(user_option)
     case user_option
-    when 1 then archived
-    when 2 then move_to_archive
-    when 3 then exit
+    when 1 then @app.books_list
+    when 2 then @app.display_labels
+    when 3 then @app.add_book
+    when 4 then exit
     else
-      puts 'invalid option'
+      puts '=======invalid option==========='
     end
-  end
-
-  def archived
-    puts 'archived'
-  end
-
-  def move_to_archive
-    puts 'moved to archive'
   end
 end
