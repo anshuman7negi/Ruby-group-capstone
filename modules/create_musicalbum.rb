@@ -3,7 +3,7 @@ require_relative '../genre'
 require_relative 'create_genre'
 
 module AddMusicAlbum
-include CreateGenre
+  include CreateGenre
   def add_music_album
     puts 'Enter the album title: '
     name = gets.chomp
