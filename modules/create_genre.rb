@@ -27,7 +27,7 @@ module CreateGenre
 
   def genre_options
     puts 'Choose From Available Genres:'
-    @genres.each_with_index do |genre, index|
+    @genres.each_with_index do |genre|
       puts "-> #{genre['name']}"
     end
     puts 'Or Enter "new" to add a new genre.'
@@ -50,7 +50,7 @@ module CreateGenre
         selected_genre
       else
         puts 'Invalid genre selection. Music album not added. Please try again.'
-        return nil
+        nil
       end
     end
   end
