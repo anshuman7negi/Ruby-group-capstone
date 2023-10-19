@@ -14,20 +14,20 @@ module CreateGenre
       puts 'Choose the genre for this album (or enter "new" to add a new genre):'
       genre_options
       selected_genre = genre_select
-  
+
       if selected_genre.nil?
         puts 'Invalid genre selection. Music album not added. Please try again.'
         return
       end
-  
+
       genre = selected_genre
     end
     genre
-  end  
+  end
 
   def genre_options
     puts 'Choose From Available Genres:'
-    @genres.each_with_index do |genre|
+    @genres.each do |genre|
       puts "-> #{genre['name']}"
     end
     puts 'Or Enter "new" to add a new genre.'
@@ -36,7 +36,7 @@ module CreateGenre
   def genre_select
     loop do
       user_input = gets.chomp
-  
+
       if user_input.downcase == 'new'
         puts 'Enter the name of the new genre:'
         new_genre_name = gets.chomp
@@ -54,5 +54,5 @@ module CreateGenre
         end
       end
     end
-  end  
+  end
 end
