@@ -1,12 +1,12 @@
 require 'json'
 
 def save_book(data, filename)
-  data_array = data.map { |book| book.to_h }
+  data_array = data.map { |book| &:to_h  }
   File.write(filename, JSON.generate(data_array))
 end
 
 def save_label(data, filename)
-  data_array = data.map { |label| label.to_h }
+  data_array = data.map { |label| &:to_h  }
   File.write(filename, JSON.generate(data_array))
 end
 
