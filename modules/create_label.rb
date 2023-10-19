@@ -20,7 +20,7 @@ module CreateLabel
       create_label
     else
       display_labels
-      puts "\nChoose a label for this book or enter "new" to add a new label:"
+      puts "\nChoose a label for this book or enter new to add a new label:"
       user_input = gets.chomp
 
       if user_input.downcase == 'new'
