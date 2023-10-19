@@ -23,16 +23,16 @@ module CreateLabel
       puts '\nChoose a label for this book or enter "new" to add a new label:'
       user_input = gets.chomp
 
-      if user_input.downcase == "new"
+      if user_input.downcase == 'new'
         create_label
       else
         label_index = user_input.to_i
-        selected_label(label_index,book)
+        selected_label(label_index, book)
       end
     end
   end
 
-  def selected_label(label_index,book)
+  def selected_label(label_index, book)
     if label_index.between?(1, @labels.length)
       selected_label = @labels[label_index - 1]
       selected_label = Label.new(selected_label['title'], selected_label['color'])

@@ -19,5 +19,4 @@ module CreateBook
     puts '=====Book added successfully====='
     label_info(book)
   end
-
 end
