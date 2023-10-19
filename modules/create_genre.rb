@@ -1,5 +1,6 @@
 require_relative '../musicalbum'
 require_relative '../genre'
+require './data/preserve_data'
 
 module CreateGenre
   def choose_genre
@@ -14,7 +15,7 @@ module CreateGenre
       genre_options
       selected_genre = genre_select
 
-      unless selected_genre
+      if selected_genre.nil?
         puts 'Invalid genre selection. Music album not added. Please try again.'
         return
       end
@@ -25,27 +26,33 @@ module CreateGenre
   end
 
   def genre_options
-    puts 'Available Genres:'
-    @genres.each_with_index do |genre, index|
-      puts "#{index + 1}. #{genre.name}"
+    puts 'Choose From Available Genres:'
+    @genres.each do |genre|
+      puts "-> #{genre['name']}"
     end
-    puts 'Enter "new" to add a new genre.'
+    puts 'Or Enter "new" to add a new genre.'
   end
 
   def genre_select
-    user_input = gets.chomp
+    loop do
+      user_input = gets.chomp
 
-    if user_input.downcase == 'new'
-      puts 'Enter the name of the new genre:'
-      new_genre_name = gets.chomp
-      new_genre = Genre.new(new_genre_name)
-      @genres << new_genre
-      new_genre
-    else
-      genre_index = user_input.to_i - 1
-      return @genres[genre_index] if genre_index.between?(0, @genres.length - 1)
-
-      nil
+      if user_input.downcase == 'new'
+        puts 'Enter the name of the new genre:'
+        new_genre_name = gets.chomp
+        new_genre = Genre.new(new_genre_name)
+        @genres << new_genre
+        return new_genre
+      else
+        selected_genre_data = @genres.find { |genre_data| genre_data['name'].downcase == user_input.downcase }
+        if selected_genre_data
+          selected_genre = Genre.new(selected_genre_data['name'])
+          selected_genre.id = selected_genre_data['id']
+          return selected_genre
+        else
+          puts 'Invalid genre selection. Please try again or enter "new" to add a new genre:'
+        end
+      end
     end
   end
 end
