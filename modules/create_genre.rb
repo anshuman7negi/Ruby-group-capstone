@@ -14,16 +14,16 @@ module CreateGenre
       puts 'Choose the genre for this album (or enter "new" to add a new genre):'
       genre_options
       selected_genre = genre_select
-
-      unless selected_genre
+  
+      if selected_genre.nil?
         puts 'Invalid genre selection. Music album not added. Please try again.'
         return
       end
-
+  
       genre = selected_genre
     end
     genre
-  end
+  end  
 
   def genre_options
     puts 'Choose From Available Genres:'
@@ -34,24 +34,25 @@ module CreateGenre
   end
 
   def genre_select
-    user_input = gets.chomp
-
-    if user_input.downcase == 'new'
-      puts 'Enter the name of the new genre:'
-      new_genre_name = gets.chomp
-      new_genre = Genre.new(new_genre_name)
-      @genres << new_genre
-      new_genre
-    else
-      selected_genre_data = @genres.find { |genre_data| genre_data['name'].downcase == user_input.downcase }
-      if selected_genre_data
-        selected_genre = Genre.new(selected_genre_data['name'])
-        selected_genre.id = selected_genre_data['id']
-        selected_genre
+    loop do
+      user_input = gets.chomp
+  
+      if user_input.downcase == 'new'
+        puts 'Enter the name of the new genre:'
+        new_genre_name = gets.chomp
+        new_genre = Genre.new(new_genre_name)
+        @genres << new_genre
+        return new_genre
       else
-        puts 'Invalid genre selection. Music album not added. Please try again.'
-        nil
+        selected_genre_data = @genres.find { |genre_data| genre_data['name'].downcase == user_input.downcase }
+        if selected_genre_data
+          selected_genre = Genre.new(selected_genre_data['name'])
+          selected_genre.id = selected_genre_data['id']
+          return selected_genre
+        else
+          puts 'Invalid genre selection. Please try again or enter "new" to add a new genre:'
+        end
       end
     end
-  end
+  end  
 end
