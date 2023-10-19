@@ -26,11 +26,11 @@ module CreateGenre
   end
 
   def genre_options
-    puts 'Available Genres:'
+    puts 'Choose From Available Genres:'
     @genres.each_with_index do |genre, index|
-      puts "#{index + 1}. #{genre.name}"
+      puts "-> #{genre['name']}"
     end
-    puts 'Enter "new" to add a new genre.'
+    puts 'Or Enter "new" to add a new genre.'
   end
 
   def genre_select
@@ -41,13 +41,17 @@ module CreateGenre
       new_genre_name = gets.chomp
       new_genre = Genre.new(new_genre_name)
       @genres << new_genre
-      save_genre(@genres, './data/genre.json')
       new_genre
     else
-      genre_index = user_input.to_i - 1
-      return @genres[genre_index] if genre_index.between?(0, @genres.length - 1)
-
-      nil
+      selected_genre_data = @genres.find { |genre_data| genre_data['name'].downcase == user_input.downcase }
+      if selected_genre_data
+        selected_genre = Genre.new(selected_genre_data['name'])
+        selected_genre.id = selected_genre_data['id']
+        selected_genre
+      else
+        puts 'Invalid genre selection. Music album not added. Please try again.'
+        return nil
+      end
     end
   end
 end

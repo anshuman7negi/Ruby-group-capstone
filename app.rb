@@ -10,12 +10,12 @@ class App
     load_books = load_data('./data/books.json')
     load_labels = load_data('./data/labels.json')
     load_musicalbums = load_data('./data/musicalbum.json')
-    load_genres = load_data('./data/genres.json')
+    load_genres = load_data('./data/genre.json')
 
     @books = load_books.nil? ? [] : load_books
     @labels = load_labels.nil? ? [] : load_labels
     @music_albums = load_musicalbums.nil? ? [] : load_musicalbums
-    @genres = [load_genres.nil? ? [] : load_genres]
+    @genres = load_genres.nil? ? [] : load_genres
   end
 
   def books_list
@@ -48,8 +48,7 @@ class App
         puts "Name: #{music_album_data['name']}"
         puts "On Spotify: #{music_album_data['on_spotify'] ? 'Yes' : 'No'}"
         puts "Publish Date: #{music_album_data['publish_date']}"
-        #genre_name = music_album_data['genre'] ? music_album_data['genre']['name'] : 'N/A'
-        #puts "Genre: #{genre_name}"
+        puts "Genre: #{music_album_data['genre_name']}"
         puts '---'
       end
     end
@@ -61,7 +60,7 @@ class App
       puts 'No genres available.'
     else
       @genres.each_with_index do |genre, index|
-        puts "Genre ##{index + 1}: #{genre.name}"
+        puts "Genre ##{index + 1}: #{genre['name']}"
       end
     end
   end

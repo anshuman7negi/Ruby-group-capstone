@@ -15,16 +15,12 @@ class MusicAlbum < Item
     super && @on_spotify
   end
 
-  def assign_genre(genre)
-    @genre = genre
-    genre&.add_item(self)
-  end
-
   def to_h
     {
       'name' => @name,
       'on_spotify' => @on_spotify,
-      'publish_date' => @publish_date
+      'publish_date' => @publish_date,
+      'genre_name' => @genre&.name
     }
   end
 end

@@ -19,9 +19,13 @@ module AddMusicAlbum
     genre = choose_genre
 
     music_album = MusicAlbum.new(name, on_spotify, publish_date)
-    music_album.assign_genre(genre)
+    genre.items ||= []
+    genre.items << music_album
+    music_album.genre = genre
+    # genre.add_item(music_album)
     @music_albums << music_album
     save_musicalbum(@music_albums, './data/musicalbum.json')
+    save_genre(@genres, './data/genre.json')
 
     puts 'Music album added!'
   end
