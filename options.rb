@@ -11,7 +11,6 @@ class Options
       'Add a music album',
       'exit'
     ]
-    @app = App.new
   end
 
   def display_options
@@ -19,6 +18,8 @@ class Options
     loop do
       puts "\n"
       puts 'Please choose an option:'
+
+      @app = App.new
 
       @option.each_with_index do |item, index|
         puts "#{index + 1} => #{item}"

@@ -18,6 +18,7 @@ class Label
       'id' => @id,
       'title' => @title,
       'color' => @color,
+      'items' => @items.map(&:to_h)
     }
   end
 end

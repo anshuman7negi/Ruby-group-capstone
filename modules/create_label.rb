@@ -19,17 +19,27 @@ module CreateLabel
       puts 'No labels are available. Please create a label first.'
       create_label
     else
-      puts 'Choose a label for this book:'
       display_labels
-      label_index = gets.chomp.to_i
+      puts '\nChoose a label for this book or enter "new" to add a new label:'
+      user_input = gets.chomp
 
-      if label_index.between?(1, @labels.length)
-        selected_label = @labels[label_index - 1]
-        selected_label.add_item(book)
-        puts "Book linked to the label: #{selected_label.title}"
+      if user_input.downcase == "new"
+        create_label
       else
-        puts 'Invalid label selection.'
+        label_index = user_input.to_i
+        selected_label(label_index,book)
       end
+    end
+  end
+
+  def selected_label(label_index,book)
+    if label_index.between?(1, @labels.length)
+      selected_label = @labels[label_index - 1]
+      selected_label = Label.new(selected_label['title'], selected_label['color'])
+      selected_label.add_item(book)
+      puts "Book linked to the label: #{selected_label.title}"
+    else
+      puts 'Invalid label selection.'
     end
   end
 end
