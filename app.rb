@@ -1,24 +1,26 @@
 require './modules/create_book'
 require './modules/create_musicalbum'
+require './data/preserve_data'
 
 class App
   include CreateBook
   include AddMusicAlbum
 
   def initialize
-    @books = []
-    @labels = []
+    load_books = load_data('./data/books.json')
+    load_labels = load_data('./data/labels.json')
+
+    @books = load_books.nil? ? [] : load_books
+    @labels = load_labels.nil? ? [] : load_labels
     @music_albums = []
     @genres = []
   end
 
   def books_list
-    puts "\n"
-    puts '=====List of your all Books are below====='
-    puts "\n"
+    puts "\n=====List of your all Books are below=====\n"
     puts 'Your books list is empty.' if @books.empty?
     @books.each_with_index do |book, index|
-      puts "#{index + 1}. #{book.publisher}. #{book.cover_state}. #{book.publish_date}"
+      puts "#{index + 1}.  #{book['publisher']}. #{book['cover_state']}. #{book['publish_date']}"
     end
   end
 
@@ -28,7 +30,7 @@ class App
     else
       puts "\nAvailable Labels:"
       @labels.each_with_index do |label, index|
-        puts "#{index + 1}. #{label.title} (#{label.color})"
+        puts "#{index + 1}. #{label['title']} (#{label['color']})"
       end
     end
   end

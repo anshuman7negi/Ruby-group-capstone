@@ -1,46 +1,36 @@
 require './app'
 
 class Options
-  def initialize
-    @option = [
-      'List all books',
-      'List all music albums',
-      'List all genres',
-      'List all labels',
-      'Add a book',
-      'Add a music album',
-      'exit'
-    ]
-    @app = App.new
-  end
+  OPTIONS = {
+    list_books: ->(app) { app.books_list },
+    list_albums: ->(app) { app.list_music_albums },
+    list_genres: ->(app) { app.list_genres },
+    list_labels: ->(app) { app.display_labels },
+    add_book: ->(app) { app.add_book },
+    add_album: ->(app) { app.add_music_album },
+    exit: ->(_) { exit }
+  }.freeze
 
   def display_options
     puts '======Welcome to the Catalog of my Things app======'
     loop do
-      puts "\n"
-      puts 'Please choose an option:'
-
-      @option.each_with_index do |item, index|
-        puts "#{index + 1} => #{item}"
+      puts "\nPlease choose an option:"
+      @app = App.new
+      OPTIONS.each_with_index do |(key, _description), index|
+        formatted_key = key.to_s.split('_').map(&:capitalize).join(' ')
+        puts "#{index + 1} - #{formatted_key}"
       end
       user_option = gets.chomp.to_i
       operation(user_option)
     end
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def operation(user_option)
-    case user_option
-    when 1 then @app.books_list
-    when 2 then @app.list_music_albums
-    when 3 then @app.list_genres
-    when 4 then @app.display_labels
-    when 5 then @app.add_book
-    when 6 then @app.add_music_album
-    when 7 then exit
+    action = OPTIONS.values[user_option - 1]
+    if action
+      action.call(@app)
     else
-      puts '=======invalid option==========='
+      puts 'Invalid option.'
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 end
