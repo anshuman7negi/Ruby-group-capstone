@@ -6,7 +6,7 @@ def save_book(data, filename)
 end
 
 def save_label(_data, filename)
-  data_array = ddata.map(&:to_h)
+  data_array = data.map(&:to_h)
   File.write(filename, JSON.generate(data_array))
 end
 
