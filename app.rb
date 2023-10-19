@@ -17,7 +17,7 @@ class App
   end
 
   def books_list
-    puts '\n=====List of your all Books are below=====\n'
+    puts "\n=====List of your all Books are below=====\n"
     puts 'Your books list is empty.' if @books.empty?
     @books.each_with_index do |book, index|
       puts "#{index + 1}.  #{book['publisher']}. #{book['cover_state']}. #{book['publish_date']}"
