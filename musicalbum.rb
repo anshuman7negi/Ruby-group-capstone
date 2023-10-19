@@ -19,4 +19,12 @@ class MusicAlbum < Item
     @genre = genre
     genre&.add_item(self)
   end
+
+  def to_h
+    {
+      'name' => @name,
+      'on_spotify' => @on_spotify,
+      'publish_date' => @publish_date
+    }
+  end
 end

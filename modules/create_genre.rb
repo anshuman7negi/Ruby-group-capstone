@@ -1,5 +1,6 @@
 require_relative '../musicalbum'
 require_relative '../genre'
+require './data/preserve_data'
 
 module CreateGenre
   def choose_genre
@@ -40,6 +41,7 @@ module CreateGenre
       new_genre_name = gets.chomp
       new_genre = Genre.new(new_genre_name)
       @genres << new_genre
+      save_genre(@genres, './data/genre.json')
       new_genre
     else
       genre_index = user_input.to_i - 1

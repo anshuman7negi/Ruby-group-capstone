@@ -9,11 +9,13 @@ class App
   def initialize
     load_books = load_data('./data/books.json')
     load_labels = load_data('./data/labels.json')
+    load_musicalbums = load_data('./data/musicalbum.json')
+    load_genres = load_data('./data/genres.json')
 
     @books = load_books.nil? ? [] : load_books
     @labels = load_labels.nil? ? [] : load_labels
-    @music_albums = []
-    @genres = []
+    @music_albums = load_musicalbums.nil? ? [] : load_musicalbums
+    @genres = [load_genres.nil? ? [] : load_genres]
   end
 
   def books_list
@@ -41,12 +43,13 @@ class App
     if @music_albums.empty?
       puts 'No music albums available.'
     else
-      @music_albums.each_with_index do |music_album, index|
+      @music_albums.each_with_index do |music_album_data, index|
         puts "Album ##{index + 1}:"
-        puts "Name: #{music_album.name}"
-        puts "On Spotify: #{music_album.on_spotify ? 'Yes' : 'No'}"
-        puts "Publish Date: #{music_album.publish_date}"
-        puts "Genre: #{music_album.genre.name}"
+        puts "Name: #{music_album_data['name']}"
+        puts "On Spotify: #{music_album_data['on_spotify'] ? 'Yes' : 'No'}"
+        puts "Publish Date: #{music_album_data['publish_date']}"
+        #genre_name = music_album_data['genre'] ? music_album_data['genre']['name'] : 'N/A'
+        #puts "Genre: #{genre_name}"
         puts '---'
       end
     end
