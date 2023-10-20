@@ -11,7 +11,7 @@ module AddMusicAlbum
 
     puts 'Is it on Spotify? (y/n): '
     on_spotify_input = gets.chomp.downcase
-    if ['y', 'n'].include?(on_spotify_input)
+    if %w(y n).include?(on_spotify_input)
       on_spotify = (on_spotify_input == 'y')
     else
       puts 'Invalid input.'
