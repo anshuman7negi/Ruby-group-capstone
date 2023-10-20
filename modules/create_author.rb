@@ -23,12 +23,12 @@ module CreateAuthor
         create_author
       else
         label_index = user_input.to_i
-        selected_label(label_index, game)
+        selected_author(label_index, game)
       end
     end
   end
 
-  def selected_label(label_index, game)
+  def selected_author(label_index, game)
     if label_index.between?(1, @games.length)
       selected_label = @labels[label_index - 1]
       selected_label = Author.new(selected_label['first_name'], selected_label['last_name'])
