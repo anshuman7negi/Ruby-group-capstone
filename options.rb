@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 require './app'
 class Options
   OPTIONS = {
     list_books: ->(app) { app.books_list },
     list_albums: ->(app) { app.list_music_albums },
     list_game: ->(app) { app.games_list },
-    list_author: ->(app) { app.display_authors},
+    list_author: ->(app) { app.display_authors },
     list_genres: ->(app) { app.list_genres },
     list_labels: ->(app) { app.display_labels },
     add_book: ->(app) { app.add_book },
@@ -26,6 +27,7 @@ class Options
       operation(user_option)
     end
   end
+
   def operation(user_option)
     action = OPTIONS.values[user_option - 1]
     if action

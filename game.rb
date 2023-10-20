@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'item'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
@@ -7,9 +8,11 @@ class Game < Item
     @multiplayer = multiplayer
     @last_played_at = Date.parse(last_played_at)
   end
+
   def can_be_archived?
     super && (Time.now.year - @last_played_at.year) > 2
   end
+
   def to_hash
     {
       publish_date: @publish_date.strftime('%Y-%m-%d'),
@@ -17,6 +20,7 @@ class Game < Item
       last_played_at: @last_played_at.strftime('%Y-%m-%d')
     }
   end
+
   def self.from_hash(hash)
     new(
       hash['publish_date'],
@@ -24,6 +28,7 @@ class Game < Item
       hash['last_played_at']
     )
   end
+
   def to_h
     {
       'multiplayer' => @multiplayer,
@@ -32,10 +37,3 @@ class Game < Item
     }
   end
 end
-
-
-
-
-
-
-

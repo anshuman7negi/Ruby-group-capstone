@@ -10,6 +10,7 @@ module CreateAuthor
     save_label(@authors, './data/author.json')
     puts "=====Label created successfully=====\n"
   end
+
   def author_info(game)
     if @authors.empty?
       puts 'No authors are available. Please create an author first.'
@@ -26,6 +27,7 @@ module CreateAuthor
       end
     end
   end
+
   def selected_label(label_index, game)
     if label_index.between?(1, @games.length)
       selected_label = @labels[label_index - 1]
@@ -37,12 +39,3 @@ module CreateAuthor
     end
   end
 end
-
-
-
-
-
-
-
-
-

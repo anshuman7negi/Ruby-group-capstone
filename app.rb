@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './modules/create_book'
 require './modules/create_musicalbum'
 require './data/preserve_data'
@@ -21,6 +22,7 @@ class App
     @games = load_games.nil? ? [] : load_games
     @authors = load_authors.nil? ? [] : load_authors
   end
+
   def books_list
     puts "\n=====List of your all Books are below=====\n"
     puts 'Your books list is empty.' if @books.empty?
@@ -28,6 +30,7 @@ class App
       puts "#{index + 1}.  #{book['publisher']}. #{book['cover_state']}. #{book['publish_date']}"
     end
   end
+
   def display_labels
     if @labels.empty?
       puts "\nYour do not have any labels."
@@ -38,6 +41,7 @@ class App
       end
     end
   end
+
   def list_music_albums
     puts 'List of Music Albums:'
     puts '---------------------'
@@ -54,6 +58,7 @@ class App
       end
     end
   end
+
   def list_genres
     puts 'List of Genres:'
     if @genres.empty?
@@ -64,6 +69,7 @@ class App
       end
     end
   end
+
   def games_list
     puts "\n=====List of your all Games are below=====\n"
     puts 'Your games list is empty.' if @games.empty?
@@ -71,6 +77,7 @@ class App
       puts "#{index + 1}.  #{game['multiplayer']}. #{game['last_played_at']}. #{game['publish_date']}"
     end
   end
+
   def display_authors
     if @authors.empty?
       puts "\nYour do not have any authors."
