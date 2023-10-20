@@ -6,9 +6,12 @@ class Options
   OPTIONS = {
     list_books: ->(app) { app.books_list },
     list_albums: ->(app) { app.list_music_albums },
+    list_game: ->(app) { app.list_games },
+    list_author: ->(app) { app.list_authors},
     list_genres: ->(app) { app.list_genres },
     list_labels: ->(app) { app.display_labels },
     add_book: ->(app) { app.add_book },
+    add_game: ->(app) { app.add_game },
     add_album: ->(app) { app.add_music_album },
     exit: ->(_) { exit }
   }.freeze
