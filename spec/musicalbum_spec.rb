@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 require './musicalbum'
 
 describe MusicAlbum do
-  let(:musicalbum) { MusicAlbum.new(true, '2013-10-16') }
-  let(:musicalbum2) { MusicAlbum.new(true, '2013-11-16') }
-  let(:musicalbum3) { MusicAlbum.new(false, '2013-10-16') }
+  let(:musicalbum) { MusicAlbum.new('Album1', true, '2013-10-16') }
+  let(:musicalbum2) { MusicAlbum.new('Album2', true, '2013-11-16') }
+  let(:musicalbum3) { MusicAlbum.new('Album3', false, '2013-10-16') }
 
   context 'initialization' do
     it 'should set the on_spotify attribute' do
