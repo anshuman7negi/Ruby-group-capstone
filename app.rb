@@ -12,13 +12,17 @@ class App
   def initialize
     load_books = load_data('./data/books.json')
     load_labels = load_data('./data/labels.json')
+    load_authors = load_data('./data/authors.json')
     load_musicalbums = load_data('./data/musicalbum.json')
     load_genres = load_data('./data/genre.json')
+    load_games = load_data('./data/games.json')
 
     @books = load_books.nil? ? [] : load_books
     @labels = load_labels.nil? ? [] : load_labels
     @music_albums = load_musicalbums.nil? ? [] : load_musicalbums
     @genres = load_genres.nil? ? [] : load_genres
+    @games = load_games.nil? ? [] : load_games
+    @authors = load_authors.nil? ? [] : load_authors
   end
 
   def books_list
@@ -64,6 +68,25 @@ class App
     else
       @genres.each_with_index do |genre, index|
         puts "Genre ##{index + 1}: #{genre['name']}"
+      end
+    end
+  end
+
+  def games_list
+    puts "\n=====List of your all Games are below=====\n"
+    puts 'Your games list is empty.' if @games.empty?
+    @games.each_with_index do |game, index|
+      puts "#{index + 1}.  #{game['multiplayer']}. #{game['last_played_at']}. #{game['publish_date']}"
+    end
+  end
+
+  def display_authors
+    if @authors.empty?
+      puts "\nYour do not have any authors."
+    else
+      puts "\nAvailable Authors:"
+      @authors.each_with_index do |author, index|
+        puts "#{index + 1}. #{author['first_name']} (#{author['last_name']})"
       end
     end
   end
