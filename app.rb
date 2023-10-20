@@ -3,11 +3,12 @@
 require './modules/create_book'
 require './modules/create_musicalbum'
 require './data/preserve_data'
-require './modules/games_author_data_manager'
+require './modules/create_game'
 
 class App
   include CreateBook
   include AddMusicAlbum
+  include CreateGame
 
   def initialize
     load_books = load_data('./data/books.json')
