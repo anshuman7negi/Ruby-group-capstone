@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './modules/create_book'
 require './modules/create_musicalbum'
 require './data/preserve_data'

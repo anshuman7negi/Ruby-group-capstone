@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'json'
 def save_book(data, filename)
   data_array = data.map(&:to_h)

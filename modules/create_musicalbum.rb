@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../musicalbum'
 require_relative '../genre'
 require_relative 'create_genre'

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './books'
 require './modules/create_label'
 require './data/preserve_data'
