@@ -10,8 +10,13 @@ module AddMusicAlbum
     name = gets.chomp
 
     puts 'Is it on Spotify? (y/n): '
-    on_spotify_input = gets.chomp
-    on_spotify = (on_spotify_input.downcase == 'y')
+    on_spotify_input = gets.chomp.downcase
+    if ['y', 'n'].include?(on_spotify_input)
+      on_spotify = (on_spotify_input == 'y')
+    else
+      puts 'Invalid input.'
+      return
+    end
 
     puts 'Enter the publish date (yyyy-mm-dd): '
     publish_date = gets.chomp
