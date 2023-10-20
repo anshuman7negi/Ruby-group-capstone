@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require './author'
 module CreateAuthor
   def create_author
@@ -11,12 +10,12 @@ module CreateAuthor
     save_label(@authors, './data/author.json')
     puts "=====Label created successfully=====\n"
   end
-  def label_info(game)
+  def author_info(game)
     if @authors.empty?
-      puts 'No labels are available. Please create a label first.'
+      puts 'No authors are available. Please create an author first.'
       create_author
     else
-      display_author
+      display_authors
       puts "\nChoose a author or enter new to add a new label:"
       user_input = gets.chomp
       if user_input.downcase == 'new'
@@ -34,7 +33,16 @@ module CreateAuthor
       selected_label.add_item(game)
       puts "game linked to the author: #{selected_label.first_name}"
     else
-      puts 'Invalid label selection.'
+      puts 'Invalid author selection.'
     end
   end
 end
+
+
+
+
+
+
+
+
+
