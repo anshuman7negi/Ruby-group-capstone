@@ -1,6 +1,7 @@
 require './modules/create_book'
 require './modules/create_musicalbum'
 require './data/preserve_data'
+require './modules/games_author_data_manager'
 
 class App
   include CreateBook
