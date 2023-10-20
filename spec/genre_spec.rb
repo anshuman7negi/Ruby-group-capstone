@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './genre'
 
 describe Genre do

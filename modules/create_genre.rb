@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../musicalbum'
 require_relative '../genre'
 require './data/preserve_data'
