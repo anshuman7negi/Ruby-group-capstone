@@ -20,13 +20,14 @@ RSpec.describe Game do
   end
 
   context 'can_be_archived?' do
-    it 'should return true if the cover state is bad' do
-      game.last_played_at = Date.parse('2018-10-16')
+    it 'should return true if last played is less than 2 year' do
+      game.last_played_at = Date.parse('2020-10-16')
+      game.publish_date = Date.parse('1999-10-10')
       expect(game.can_be_archived?).to be(true)
     end
-
-    it 'should call the superclass method if cover state is good' do
-      game.last_played_at = Date.parse('2022-10-12')
+    it 'should call the superclass method and return false' do
+      game.last_played_at = Date.parse('2023-10-12')
+      game.publish_date = Date.parse('2020-10-10')
       expect(game.can_be_archived?).to eq(false)
     end
   end
