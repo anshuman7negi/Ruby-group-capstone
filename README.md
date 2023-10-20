@@ -22,6 +22,8 @@
 
 **Catalog of my things app** is a Ruby-based console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games.
 
+Presentation: https://drive.google.com/file/d/1nV1j6p_NXcbVauz9qKELow_EGesQSHLI/view?usp=sharing
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack
