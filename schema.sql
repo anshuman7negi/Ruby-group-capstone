@@ -35,7 +35,7 @@ CREATE TABLE music_albums (
 CREATE TABLE item (
   id INT GENERATED ALWAYS AS IDENTITY,
   genre_id INT REFERENCES genres(id),
-  label INT REFERENCES label(id),
+  label INT REFERENCES labels(id),
   publish_date DATE,
   archived BOOLEAN,
   PRIMARY KEY (id)
