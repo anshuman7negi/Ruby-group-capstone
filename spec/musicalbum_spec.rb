@@ -1,5 +1,3 @@
-# musicalbum_spec.rb
-
 require './musicalbum'
 
 describe MusicAlbum do
