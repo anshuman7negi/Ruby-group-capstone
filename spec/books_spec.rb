@@ -31,7 +31,8 @@ describe Books do
 
     it 'should call the superclass method if cover state is good' do
       book.cover_state = 'Good'
-      expect(book.can_be_archived?).to eq(item.can_be_archived?)
+      book.publish_date = Date.parse('1999-10-10')
+      expect(book.can_be_archived?).to eq(true)
     end
   end
 end
