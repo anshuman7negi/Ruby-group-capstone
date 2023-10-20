@@ -26,11 +26,15 @@ CREATE TABLE game (
   CONSTRAINT fk_author FOREIGN KEY (author_id) REFERENCES author(id)
 );
 CREATE TABLE books (
-  id  INT,
+  id INT GENERATED ALWAYS AS IDENTITY,
+  label_id INT,
   title VARCHAR(100),
   publisher VARCHAR(100),
   cover_state VARCHAR(100),
-  FOREIGN KEY(id) REFERENCES labels(id)
+  publish_date DATE,
+  archived BOOLEAN,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_label FOREIGN KEY (label_id) REFERENCES labels(id)
 );
 CREATE TABLE music_albums (
   id INT GENERATED ALWAYS AS IDENTITY,
@@ -50,3 +54,7 @@ CREATE TABLE item (
   archived BOOLEAN,
   PRIMARY KEY (id)
 );
+
+CREATE INDEX game_author_id ON game (author_id ASC);
+CREATE INDEX music_albums_genre_id ON music_albums (genre_id ASC);
+CREATE INDEX books_label_id ON books (label_id ASC);
