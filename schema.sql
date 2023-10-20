@@ -14,6 +14,19 @@ CREATE TABLE genres (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE author (
+  id INT PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50)
+);
+
+CREATE TABLE game (
+  id INT PRIMARY KEY REFERENCES item(id), ,
+  publish_date DATE,
+  multiplayer BOOLEAN,
+  last_played_at DATE,
+);
+
 CREATE TABLE books (
   id  INT,
   title VARCHAR(100),
@@ -36,6 +49,7 @@ CREATE TABLE item (
   id INT GENERATED ALWAYS AS IDENTITY,
   genre_id INT REFERENCES genres(id),
   label INT REFERENCES labels(id),
+  author INT REFERENCES author(id),
   publish_date DATE,
   archived BOOLEAN,
   PRIMARY KEY (id)
